@@ -24,4 +24,4 @@ yarn-error.log*
 
 
 # 개인정보
-.env
+# .env
