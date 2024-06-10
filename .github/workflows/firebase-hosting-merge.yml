@@ -22,12 +22,12 @@ jobs:
       run: npm install
 
     - name: Install Firebase CLI
-      run: npm install -g firebase-tools@11  # Firebase CLI를 11.x 버전으로 설치
+      run: npm install -g firebase-tools@11
 
     - name: Build
       run: npm run build
       env:
-        CI: false  # ESLint 경고를 무시하기 위해 CI 환경 변수를 false로 설정
+        CI: false
 
     - name: Deploy to Firebase Hosting
       env:
