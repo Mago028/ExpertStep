@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.Test-Guidelines {
+  text-align: center;
+}
+
+.Ecs-Guidelines-header {
+  margin-bottom: 20px;
+}
+
+.notification {
+  margin: 50px 20px;
+}
+
+.time-limit {
+  margin-bottom: 20px;
+}
+
+.test_start {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #4f4fcb;
+  color: #fff;
+  cursor: pointer;
+  width: 200px; /* Set the width to fit the content */
+  
+  margin: 150px auto;
+ 
+}

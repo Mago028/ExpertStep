@@ -1,0 +1,57 @@
+.selectround {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px; /* 100px margin from the top */
+}
+
+.EIS-round-header h2 {
+  margin: 0; /* Remove default margin */
+}
+
+.Guide {
+  margin: 0;
+  font-size: 16px;
+}
+
+.round-select {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  box-shadow: 0px 10px 18px 0px rgba(2, 109, 239, 0.04);
+  width: 330px;
+  height: 100px;
+  padding: 20px;
+  border-radius: 14px;
+  margin: 5px;
+  background-color: white;
+}
+
+.round-select .content {
+  display: flex;
+  align-items: center;
+}
+
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  margin-right: 20px; /* Adjust as needed */
+}
+
+.text-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.link-container {
+  text-decoration: none;
+  color: #000;
+}
+
+.categoryHeader {
+  font-size: 18px;
+}
+
+.categoryText {
+  font-size: 14px;
+}

@@ -1,0 +1,117 @@
+.grades-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem; /* Add padding */
+  text-align: center;
+}
+
+.result-container {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px; /* Limit the maximum width */
+}
+
+.result-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.result-score {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.result-status.pass {
+  color: green;
+}
+
+.result-status.fail {
+  color: red;
+}
+
+.result-info {
+  margin-bottom: 1rem;
+  text-align: center; /* Center align text */
+}
+
+.result-chart {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.subject-bar {
+  position: relative;
+  margin: 0 0.5rem;
+}
+
+.bar {
+  background-color: #007bff;
+  width: 100%;
+  transition: height 0.3s ease;
+}
+
+.correct-count {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+.midline {
+  position: absolute;
+  bottom: 40%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: red;
+}
+
+.result-chartline {
+  margin-top: 0.5rem;
+}
+
+.fail-subjects {
+  margin-bottom: 1rem;
+}
+
+.fail-subjects h3 {
+  margin-bottom: 0.5rem;
+}
+
+.failed-subject-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.failed-subject {
+  padding: 0.5rem 1rem;
+  background-color: #f8d7da;
+  color: #721c24;
+  border-radius: 5px;
+}
+
+.buttons {
+  margin-top: 2rem;
+}
+
+.buttons .button {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}

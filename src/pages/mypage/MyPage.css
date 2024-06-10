@@ -1,0 +1,75 @@
+.mypage-container {
+  font-family: Arial, sans-serif;
+  width: 90%;
+  max-width: 400px;
+  margin: 20px auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 20px;
+  border: 2px solid #ccc;
+  box-sizing: border-box;
+}
+
+.mypage-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background-color: #4f4fcb;
+  color: white;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-sizing: border-box;
+}
+
+.mypage-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.mypage-account {
+  padding: 20px;
+  text-align: center;
+}
+
+.profile-section {
+  margin-bottom: 20px;
+}
+
+.profile-pic-container {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.profile-name {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.account-settings .setting-item {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  text-align: left;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.account-settings .setting-item:hover {
+  background-color: #f9f9f9;
+}
+
+.account-settings .setting-item:before {
+  content: '>';
+  margin-right: 10px;
+  color: #bbb;
+}

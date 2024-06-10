@@ -1,0 +1,9 @@
+.back-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  position: fixed; /* 페이지 스크롤에 상관없이 고정 위치 */
+  top: 180px; /* 페이지의 상단으로부터 10px 아래에 위치 */
+  left: 10px; /* 페이지의 왼쪽으로부터 10px 오프셋 */
+}

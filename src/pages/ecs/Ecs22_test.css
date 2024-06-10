@@ -1,0 +1,272 @@
+.Test-sheet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  max-width: 800px; /* 최대 너비를 설정하여 화면 가운데 정렬 */
+  margin-left: auto; /* 왼쪽 마진을 자동으로 설정 */
+  margin-right: auto; /* 오른쪽 마진을 자동으로 설정 */
+}
+
+.Test-top {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 가운데 정렬 */
+  width: 100%; /* 전체 너비 사용 */
+}
+
+.Test-sheet-header h2 {
+  text-align: center;
+  font-size: 25px;
+}
+
+.Test-submit button {
+  margin-left: 50px; /* 여백 수정 */
+  border: none;
+  outline: none;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: #f9fbff;
+  color: royalblue;
+  cursor: pointer; /* 커서 포인터 추가 */
+}
+
+.State {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px; /* 폰트 크기 증가 */
+  width: 90%; /* 전체 너비 사용 */
+}
+
+.icon-timer {
+  position: relative;
+  top: 3px;
+}
+
+.Timer {
+  font-weight: 600;
+}
+
+.Current-problem {
+  padding: 0 8px;
+  margin: 0;
+  width: fit-content;
+  border-radius: 14px;
+  background-color: royalblue;
+  color: white;
+}
+
+.Current-problem p {
+  margin: 5px;
+}
+
+.answer-buttons-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2열 */
+  grid-template-rows: auto auto; /* 2행 */
+  gap: 20px; /* 각 버튼 사이의 간격 */
+  position: fixed;
+  left: 50%;
+  bottom: 140px;
+  transform: translateX(-50%);
+  margin-top: 40px;
+}
+
+.answer-buttons {
+  display: flex;
+  justify-content: center; /* 숫자를 수평으로 가운데 정렬 */
+  align-items: center; /* 숫자를 수직으로 가운데 정렬 */
+  width: 100%;
+  height: 50px;
+  padding: 5px 60px;
+  border-radius: 25px;
+  font-size: 20px;
+  font-weight: 600;
+  border: 1px solid black;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.answer-buttons button:hover {
+  background-color: royalblue; /* 버튼 호버 효과 */
+}
+.choices {
+  margin-top: 0px; /* 위쪽 마진 추가 */
+  text-align: left; /* 왼쪽 정렬 */
+  width: 100%; /* 전체 너비 사용 */
+}
+
+.choices p {
+  margin: 5px 0; /* 위아래 마진 설정 */
+}
+
+.Question-sheet {
+  max-height: 30vh; /* 최대 높이 설정  */
+  overflow: auto; /* 내용이 넘칠 경우 수직 스크롤 표시 */
+}
+
+/* 전체보기 버튼 스타일 */
+.button-view-all {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: royalblue;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.button-view-all:hover {
+  background-color: #0056b3;
+}
+
+/* 팝업 창 스타일 */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f9fbff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-width: 300px; /* 최대 너비 설정 */
+  max-height: 350px; /* 최대 높이 설정 */
+  overflow: auto; /* 내용이 넘칠 경우 스크롤 표시 */
+}
+
+.icon-fullview {
+  position: relative;
+  top: 3px;
+  right: 5px;
+}
+
+.popup-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.popup-group {
+  flex: 1 0 100%; /* 그룹 전체를 차지하도록 설정 */
+  display: flex;
+  flex-direction: row; /* 가로로 나열하도록 설정 */
+  justify-content: center; /* 가운데 정렬 */
+  margin-bottom: 10px;
+}
+
+.popup-button {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  font-size: 17px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-button:hover {
+  background-color: royalblue;
+}
+
+.popup-button:focus,
+.popup-button:active {
+  color: white; /* 버튼을 눌렀을 때 텍스트 색상을 흰색으로 변경 */
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.popup-title {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.popup-description {
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+/*제출 창 스타일*/
+.Submit-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 20px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 70%; /* 팝업 창의 너비를 400px로 설정 */
+  height: 25%; /* 팝업 창의 높이를 250px로 설정 */
+  display: flex;
+  flex-direction: column; /* 컬럼 방향으로 정렬 */
+  justify-content: space-between; /* 공간을 균등하게 분배 */
+}
+
+.popup-submit-title {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-submit-description {
+  font-size: 17px;
+  color: #888888;
+}
+
+.popup-submit-info {
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+
+.popup-submit-buttons {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid black;
+  padding-top: 10px;
+}
+
+.submit-button {
+  background-color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #4f4fcb;
+  border: none;
+  cursor: pointer;
+}
+
+.cancel-button {
+  background-color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+  border: none;
+  cursor: pointer;
+}

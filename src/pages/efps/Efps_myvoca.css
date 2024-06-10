@@ -1,0 +1,116 @@
+.voca-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    width: 100%;
+    background-color: #f9f9f9; 
+  }
+  
+  .voca-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .voca {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    margin: 20px;
+    perspective: 1000px; 
+    cursor: pointer;
+  }
+  
+  .voca-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+  
+  .voca.flipped .voca-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .voca-front, .voca-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 2em;
+  }
+  
+  .voca-front {
+    background-color: #4b69ff; 
+  }
+  
+  .voca-back {
+    background-color: #4b69ff; 
+    transform: rotateY(180deg);
+  }
+  
+  .button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; 
+    width: 100%;
+  }
+  
+  .next-button, .complete-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid #4b69ff; 
+    border-radius: 10px; 
+    cursor: pointer;
+    background-color: #fff; 
+    color: #4b69ff; 
+    transition: background-color 0.3s ease;
+    margin: 0 10px; 
+  }
+  
+  .next-button:hover, .complete-button:hover {
+    background-color: #4b69ff; 
+    color: #fff; 
+  }
+
+  .card-front .word {
+    word-break: keep-all; /* 단어가 잘리지 않도록 설정 */
+    overflow-wrap: normal; /* 줄 바꿈을 정상적으로 처리 */
+  }
+  
+  /*문단 모양*/
+  .card-back .definition {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    text-align: justify;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  /*즐겨찾기한 단어가 없을때*/
+  .no-favorites {
+    font-size: 1.5em;
+    color: #555;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .word {
+    word-break: break-word;
+    white-space: pre-wrap;
+    text-align: center; /* 선택사항: 텍스트를 중앙에 정렬 */
+  }
+  
+  

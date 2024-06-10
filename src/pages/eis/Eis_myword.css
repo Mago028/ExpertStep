@@ -1,0 +1,85 @@
+
+.test-select {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+  }
+  
+  .select-header h2 {
+    margin: 0;
+  }
+  
+  .Guide {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .field {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    box-shadow: 0px 10px 18px 0px rgba(2, 109, 239, 0.04);
+    width: 330px;
+    height: 100px;
+    padding: 20px;
+    border-radius: 14px;
+    margin: 5px;
+    background-color: white;
+  }
+  
+  .field .content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .icon-wrapper {
+    display: flex;
+    align-items: center;
+    margin-right: 40px; /* 아이콘과 텍스트 사이 간격 조정 */
+    margin-left: 20px;
+  }
+  
+  .text-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  
+  .link-container {
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .SubjectHeader {
+    font-size: 18px;
+    margin: 0;
+  }
+  .categorySubject {
+    font-size: 12px;
+  }
+
+  .card-front .word {
+    word-break: keep-all; /* 단어가 잘리지 않도록 설정 */
+    overflow-wrap: normal; /* 줄 바꿈을 정상적으로 처리 */
+  }
+  
+  /*문단 모양*/
+  .card-back .definition {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    text-align: justify;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .word {
+    word-break: break-word;
+    white-space: pre-wrap;
+    text-align: center; /* 선택사항: 텍스트를 중앙에 정렬 */
+  }
+  
