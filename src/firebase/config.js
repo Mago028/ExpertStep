@@ -1,18 +1,18 @@
-//src/firebase/confug.js
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
-import { getStorage } from "firebase/storage";
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
+import { getFunctions } from 'firebase/functions';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA1OQqgDPpGY15XzOXuSHJ-y9ry6z-B7P8",
-  authDomain: "expertstep-ce041.firebaseapp.com",
-  databaseURL: "https://expertstep-ce041-default-rtdb.firebaseio.com",
-  projectId: "expertstep-ce041",
-  storageBucket: "expertstep-ce041.appspot.com",
-  messagingSenderId: "753140132296",
-  appId: "1:753140132296:web:fbd72ddb74ef5b9a91f8fd",
-  measurementId: "G-3T98MFJ612",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
@@ -20,5 +20,6 @@ const app = initializeApp(firebaseConfig);
 const appAuth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);
+const functions = getFunctions(app);
 
-export { db, appAuth, storage };
+export { db, appAuth, storage, functions };
