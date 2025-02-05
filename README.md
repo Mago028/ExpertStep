@@ -1,71 +1,39 @@
-# Getting Started with Create React App
+# 한서대학교 2024졸업프로젝트||"ExpertStep;자격증 공부를 언제어디서나"
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📌 프로젝트 개요
+ExpertStep은 자격증 문제 풀이 및 모의고사 기능을 제공하는 웹 애플리케이션입니다. 사용자는 자격증별 문제를 풀고 성적을 확인하며, 오답 노트를 통해 학습을 보완할 수 있습니다.
 
-## Available Scripts
+## 🛠 개발 환경
+- **개발도구:** Visual Studio Code
+- **Frontend:** React.js
+- **Backend:** Firebase, Node.js
+- **Database:** Firestore
+- **배포:** Firebase Hosting
 
-In the project directory, you can run:
+## 🔥 주요 기능
+### ✅ 자격증 문제 풀이
+- 자격증별 회차 문제 제공
+- 실시간 채점 및 정답 확인
+- 오답 노트 기능으로 틀린 문제 복습
 
-### `npm start`
+### ✅ 랜덤 모의고사
+- 자격증별로 랜덤하게 문제 출제
+- 실제 시험과 유사한 환경 제공
+- 자동 채점 및 성적 저장
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### ✅ 사용자 기록 관리
+- 로그인하여 문제 풀이 기록 저장
+- 성적 결과 조회 및 통계 분석
+- 오답노트 기능 제공
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🏗 설치 및 실행 방법
 
-### `npm test`
+### 📌 1. 필수 설치 항목
+이 프로젝트를 실행하려면 다음이 필요합니다:
+- **Node.js** (v16.20.2)
+- **Firebase CLI** (Firebase 사용 시)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# my-diary
+### 📌 2. 프로젝트 클론 (GitHub에서 다운로드)
+```sh
+git clone https://github.com/Mago028/ExpertStep.git
+cd ExpertStep
