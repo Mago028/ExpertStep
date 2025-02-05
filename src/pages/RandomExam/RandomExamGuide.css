@@ -1,0 +1,49 @@
+.RandomExamGuide-container {
+    padding: 40px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    margin: 50px auto;
+    text-align: center;
+  }
+  
+  .RandomExamGuide-header {
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 25px;
+  }
+  
+  .RandomExamGuide-notification {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 25px;
+    line-height: 1.6;
+  }
+  
+  .RandomExamGuide-time-limit {
+    font-size: 20px;
+    font-weight: bold;
+    color: #FF5733;
+    margin-bottom: 30px;
+  }
+  
+  .RandomExamGuide-test_start {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: #4f4fcb;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .RandomExamGuide-test_start:hover {
+    background-color: #4340b1;
+  }
+  

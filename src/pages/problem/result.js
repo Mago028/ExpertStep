@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { db } from "../../firebase/config";
 import { collection, addDoc } from "firebase/firestore";
 import "./result.css";
@@ -13,41 +13,56 @@ export default function Result() {
     totalScore = 0,
     incorrectAnswers = [],
     userId,
+    testName = "Unknown Test"  // 기본값 설정
   } = location.state || {};
 
   console.log("Result 컴포넌트에서 전달된 userId: ", userId);
 
-  const findFailedSubjects = () => {
-    return areaScores
-      .map((score, index) => ({
-        subject: `영역 ${index + 1}`,
-        score,
-      }))
-      .filter((subject) => subject.score < 40);
-  };
-
   const isPass = () => {
     const averageScore = areaScores.reduce((a, b) => a + b, 0) / areaScores.length;
-    return averageScore >= 60 && findFailedSubjects().length === 0;
+    return averageScore >= 60 && areaScores.every(score => score >= 40);
   };
 
   useEffect(() => {
-    const saveIncorrectAnswers = async () => {
+    const saveResultsAndIncorrectAnswers = async () => {
       if (userId) {
-        for (const answer of incorrectAnswers) {
-          if (answer.question && answer.correctAnswer && answer.selectedAnswer) {
-            await addDoc(collection(db, "users", userId, "incorrectAnswers"), answer);
+        try {
+          if (testName) {
+            // 시험 결과 데이터 저장
+            await addDoc(collection(db, "users", userId, "testResults"), {
+              testName, // testName만 저장하도록 수정
+              totalScore,
+              areaScores,
+              totalQuestions,
+              timestamp: new Date().toISOString(),
+              incorrectAnswers,
+            });
           } else {
-            console.warn("Incomplete data: ", answer);
+            console.warn("No testName provided, skipping test result save.");
           }
+
+          // 오답 데이터 각각 저장
+          for (const answer of incorrectAnswers) {
+            if (answer.question && answer.correctAnswer && answer.selectedAnswer) {
+              await addDoc(collection(db, "users", userId, "incorrectAnswers"), {
+                ...answer,
+                testName,
+              });
+            } else {
+              console.warn("Incomplete data: ", answer);
+            }
+          }
+        } catch (error) {
+          console.error("Error saving test results and incorrect answers: ", error);
         }
       } else {
         console.error("No userId provided");
       }
     };
-    saveIncorrectAnswers();
-  }, [incorrectAnswers, userId]);
 
+    saveResultsAndIncorrectAnswers();
+  }, [incorrectAnswers, userId, totalScore, areaScores, totalQuestions, testName]);
+  
   const handleViewIncorrectAnswers = () => {
     navigate("/incorrect-explanation", { state: { userId } });
   };
@@ -56,18 +71,14 @@ export default function Result() {
     <div className="result-page">
       <div className="result-top">
         <div className="result-header">
-          <div className="result-title">
-            <h2>총점</h2>
-          </div>
+          <div className="result-title"></div>
           <div className="result-score">{totalScore.toFixed(2)}점</div>
           <div className={`result-status ${isPass() ? "pass" : "fail"}`}>
             {isPass() ? "합격!" : "불합격"}
           </div>
         </div>
         <div className="result-info">
-          <p>
-            총 {totalQuestions}문제 중 {totalScore.toFixed(2)}점 맞추셨습니다.
-          </p>
+          <p>총 {totalQuestions}문제 중 {totalScore.toFixed(2)}점 맞추셨습니다.</p>
           <p>과락 기준: 40점 미만</p>
         </div>
       </div>
@@ -79,12 +90,7 @@ export default function Result() {
               className="subject-bar"
               style={{ width: `${100 / areaScores.length}%`, position: "relative" }}
             >
-              <div
-                className="bar"
-                style={{
-                  height: `${score}%`,
-                }}
-              >
+              <div className="bar" style={{ height: `${score}%` }}>
                 <div className="correct-count">{score}</div>
               </div>
               <div className="midline"></div>
@@ -94,33 +100,13 @@ export default function Result() {
             </div>
           ))}
         </div>
-        <div className="fail-subjects">
-          <h3>과락 과목</h3>
-          {findFailedSubjects().length > 0 ? (
-            <ul>
-              {findFailedSubjects().map((subject, index) => (
-                <li key={index}>{subject.subject}</li>
-              ))}
-            </ul>
-          ) : (
-            <p>과락한 과목이 없습니다.</p>
-          )}
+        <div className="resultpage-btn">
+          <button onClick={handleViewIncorrectAnswers} className="result-btn-container">
+            <div className="wrong-answer-btn">
+              <p>오답 보기</p>
+            </div>
+          </button>
         </div>
-      </div>
-      <div className="resultpage-btn">
-        <Link to="/problem" className="result-btn-container">
-          <div className="problem-btn">
-            <p>
-              문제 페이지로 <br />
-              돌아가기
-            </p>
-          </div>
-        </Link>
-        <button onClick={handleViewIncorrectAnswers} className="result-btn-container">
-          <div className="wrong-answer-btn">
-            <p>오답 보기</p>
-          </div>
-        </button>
       </div>
     </div>
   );

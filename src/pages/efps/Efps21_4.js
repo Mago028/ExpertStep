@@ -18,7 +18,7 @@ export default function Efps21_4() {
       </div>
 
       <Link
-        to="/problem/efps/efps21_1_test"
+        to="/problem/efps/efps21_4_test"
         style={{ textDecoration: "none", color: "white" }}
       >
         <div className="test_start">시험 응시하기</div>

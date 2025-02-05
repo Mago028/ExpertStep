@@ -116,62 +116,69 @@ export default function Ecs22_1_test({ userId = "defaultUserId" }) {
     }
   };
 
-  const handleSubmit = async () => {
-    try {
-      const answersData = await fetchAnswers();
-      const areaScores = Array(TOTAL_SUBJECTS).fill(0);
-      const incorrectAnswers = [];
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+const handleSubmit = async () => {
+  if (isSubmitting) return; // 이미 제출 중이라면 종료
+  setIsSubmitting(true); // 제출 중 상태로 변경
+
+  try {
+    console.log("Submitting test with name:", TEST_NAME);
+    const answersData = await fetchAnswers();
+    const areaScores = Array(TOTAL_SUBJECTS).fill(0);
+    const incorrectAnswers = [];
+
+    selectedAnswers.forEach((answer, index) => {
+      const { answer: correctAnswer, areaId, Question, Explanation, Image, ExplanationImage } = answersData[index];
+      if (answer !== correctAnswer) {
+        incorrectAnswers.push({
+          questionNum: index + 1,
+          question: Question,
+          correctAnswer,
+          selectedAnswer: answer,
+          choices: [
+            answersData[index]["Choice 1"],
+            answersData[index]["Choice 2"],
+            answersData[index]["Choice 3"],
+            answersData[index]["Choice 4"]
+          ],
+          explanation: Explanation || "No explanation provided",
+          userId: userId,
+          image: Image || null,
+          explanationImage: ExplanationImage || null
+        });
+      } else {
+        areaScores[areaId - 1] += 5;
+      }
+    });
+
+    const totalScore = areaScores.reduce((a, b) => a + b, 0) / TOTAL_SUBJECTS;
+
+    const resultData = {
+      testName: TEST_NAME,
+      userId: userId,
+      totalScore: totalScore,
+      areaScores: areaScores,
+      totalQuestions: eipData.length,
+      timestamp: new Date().toISOString(),
+      incorrectAnswers: incorrectAnswers
+    };
+
+    console.log("Result data:", resultData);
+
+    await addDoc(collection(db, "users", userId, "testResults"), resultData);
+
+    navigate("/pages/problem/result", { state: { areaScores, totalScore, totalQuestions: eipData.length, userId } });
+    setIsSubmitPopupOpen(false);
+  } catch (error) {
+    console.error("Error during submission: ", error);
+  } finally {
+    setIsSubmitting(false); // 제출 완료 후 상태 초기화
+  }
+};
+
+
   
-      selectedAnswers.forEach((answer, index) => {
-        const { answer: correctAnswer, areaId, Question, Explanation, Image, ExplanationImage } = answersData[index];
-        if (answer !== correctAnswer) {
-          incorrectAnswers.push({
-            questionNum: index + 1,
-            question: Question,
-            correctAnswer,
-            selectedAnswer: answer,
-            choices: [
-              answersData[index]["Choice 1"],
-              answersData[index]["Choice 2"],
-              answersData[index]["Choice 3"],
-              answersData[index]["Choice 4"]
-            ],
-            explanation: Explanation || "No explanation provided",
-            userId: userId,
-            image: Image || null,
-            explanationImage: ExplanationImage || null
-          });
-        } else {
-          areaScores[areaId - 1] += 5;
-        }
-      });
-  
-      const totalScore = areaScores.reduce((a, b) => a + b, 0) / TOTAL_SUBJECTS;
-  
-      // 오답 데이터를 Firestore에 저장
-      incorrectAnswers.forEach(async (answer) => {
-        const docRef = collection(db, "users", userId, "incorrectAnswers");
-        await addDoc(docRef, answer);
-      });
-  
-      // 시험 결과를 Firestore에 저장
-      const resultData = {
-        testName: TEST_NAME,
-        userId: userId,
-        totalScore: totalScore,
-        areaScores: areaScores,
-        totalQuestions: eipData.length,
-        timestamp: new Date().toISOString()
-      };
-  
-      await addDoc(collection(db, "users", userId, "testResults"), resultData);
-  
-      navigate("/pages/problem/result", { state: { areaScores, totalScore, totalQuestions: eipData.length, userId } });
-      setIsSubmitPopupOpen(false);
-    } catch (error) {
-      console.error("Error during submission: ", error);
-    }
-  };
 
   const currentQuestion = eipData[currentQuestionIndex];
 
@@ -226,7 +233,7 @@ export default function Ecs22_1_test({ userId = "defaultUserId" }) {
           <h2>{TEST_NAME}</h2>
         </div>
         <div className="Test-submit">
-          <button onClick={toggleSubmitPopup}>제출</button>
+        <button onClick={handleSubmit} disabled={isSubmitting}>제출</button>
         </div>
       </div>
       <div className="State">

@@ -1,70 +1,89 @@
 .result-page {
-  margin-top: 10px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   background-color: white;
-  height: 70vh;
-  align-items: center; /* 가운데 정렬 */
+  min-height: 100vh;
+  align-items: center;
+  justify-content: flex-start;
+  padding-bottom: 20px; /* 하단에 충분한 여백 추가 */
 }
 
 .result-top {
-  margin-bottom: 0;
+  margin-bottom: 30px;
 }
 
 .result-header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .result-title h2 {
-  font-size: 40px;
+  font-size: 30px;
   color: #333;
   margin: 0;
 }
 
 .result-score {
-  font-size: 25px;
-  font-weight: 500;
+  font-size: 36px;
+  font-weight: 700;
   margin-top: 10px;
+  color: #333;
 }
 
 .result-status {
-  margin: 5px;
-  font-size: 20px;
+  margin: 10px 0 15px;
+  font-size: 30px;
   font-weight: bold;
 }
+
 .fail {
-  color: #ff0000;
+  color: #ff3b3b;
 }
+
 .pass {
   color: #009f3f;
 }
 
 .result-info {
   font-weight: 500;
-  font-size: 14px;
-  align-self: flex-start;
-  display: flex; /* flex 컨테이너로 설정 */
-  flex-direction: column; /* 세로로 아이템 배치 */
+  font-size: 16px;
+  align-self: center;
+  text-align: center;
   margin-bottom: 20px;
+  color: #555;
 }
 
 .result-info p {
-  margin: 0;
+  margin: 5px 0;
+}
+
+.result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  padding: 30px 20px;
+  border: 2px solid #ddd;
+  border-radius: 15px;
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
+  box-sizing: border-box;
 }
 
 .result-chart {
-  margin: 0px 20px 20px;
-  height: 70%;
-  min-width: 300px;
-  width: 320px;
-  padding: 40px 20px 20px;
+  margin-top: 20px;
+  height: 250px;
+  min-width: 250px;
+  width: 100%;
+  padding: 20px;
   display: flex;
-  outline: 2px rgb(201, 201, 201) solid;
+  justify-content: space-between;
+  border: 1px solid #e0e0e0;
   border-radius: 15px;
-  position: relative;
+  background-color: #ffffff;
 }
 
 .subject-bar {
@@ -72,83 +91,49 @@
   flex-direction: column;
   align-items: center;
   margin: 0 10px;
-  transform: translateY(-5%);
-  border-bottom: #c9c8c8 2px solid;
 }
 
 .subject-name {
   font-size: 14px;
   font-weight: bold;
-  width: 40px;
-  position: absolute; /* 과목 이름을 절대 위치로 설정 */
-  bottom: 5px; /* 아래쪽으로 위치 */
-  left: 10%; /* 가운데로 정렬 */
-
-  transform: translateY(150%);
+  width: 50px;
+  position: absolute;
+  bottom: -35px;
+  text-align: center;
 }
 
 .bar {
-  width: 30px; /* 막대의 너비 */
-  background-color: #c9c8c8;
-  position: absolute; /* 절대 위치로 설정 */
-  bottom: 0; /* 아래쪽으로 정렬 */
+  width: 25px;
+  background-color: #4f4fcb;
+  position: absolute;
+  bottom: 0;
 }
 
 .correct-count {
-  position: absolute; /* 절대 위치로 설정 */
-  top: -20px; /* 막대 위로 상단으로 이동 */
-  left: 50%; /* 가운데 정렬 */
-  transform: translateX(-50%); /* 가운데 정렬 */
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
+  color: #333;
 }
 
 .midline {
   position: absolute;
-  bottom: 40%; /* 40점을 기준으로 위치 */
+  bottom: 40%;
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: rgb(232, 103, 103);
-}
-
-.fail-subjects {
-  margin: 20px 20px 60px; /* result-chart와의 간격 조정 */
-  outline: 2px rgb(201, 201, 201) solid;
-  border-radius: 15px;
-  padding: 20px;
-  min-width: 300px;
-  width: 320px;
-}
-
-.fail-subjects h3 {
-  margin: 0;
-  font-size: 20px;
-  color: #333;
-}
-
-.fail-subjects ul {
-  list-style: none;
-  padding: 0;
-}
-
-.fail-subjects ul li {
-  margin-bottom: 5px;
-}
-
-.fail-subjects p {
-  margin-top: 10px;
+  background-color: #ff3b3b;
 }
 
 .resultpage-btn {
-  position: fixed;
-  bottom: 100px;
-  left: 50%;
-  transform: translateX(-50%);
+  margin-top: 70px; /* 버튼 상단에 더 많은 여백 추가 */
   display: flex;
   justify-content: center;
   width: 100%;
-  z-index: 999;/* 페이지 내 다른 요소들 위에 보이도록 설정 */
+  position: relative; /* 기본 레이아웃에 맞게 위치 */
 }
 
 .result-btn-container {
@@ -156,32 +141,30 @@
   flex: 1;
   display: flex;
   justify-content: center;
-  background: none; /* 네모 박스 제거 */
-  border: none; /* 네모 박스 제거 */
+  background: none;
+  border: none;
 }
 
-.problem-btn,
 .wrong-answer-btn {
   background-color: #4f4fcb;
   color: white;
-  padding: 15px 10px; /* 세로 패딩만 설정하여 높이를 일정하게 유지 */
+  padding: 15px 30px;
   border-radius: 30px;
   text-align: center;
   transition: background-color 0.3s ease;
-  width: 55%; /* 버튼이 컨테이너의 전체 너비를 차지하도록 설정 */
+  width: 45%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  margin-bottom: 20px; /* 아래 네비게이션바와 겹치지 않게 여백 추가 */
 }
 
-.problem-btn:hover,
 .wrong-answer-btn:hover {
-  background-color: #4f4fcb;
+  background-color: #3e3eab;
 }
 
-.problem-btn p,
 .wrong-answer-btn p {
   margin: 0;
-  font-size: 15px;
+  font-size: 16px;
 }

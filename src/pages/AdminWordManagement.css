@@ -1,0 +1,110 @@
+/* 전체 단어 관리 섹션 스타일 */
+.word-management-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 자격증 선택 라벨과 드롭다운을 나란히 배치 */
+.certificate-selection {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.certificate-selection label {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.certificate-selection select {
+    width: auto;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    color: #000;
+    font-size: 16px;
+}
+
+/* 단어 입력 필드 스타일 */
+.word-management-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    color: #000;
+    font-size: 16px;
+}
+
+/* 단어 추가 버튼 스타일 */
+.word-management-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4f4fcb;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.word-management-container button:hover {
+    background-color: #3939a2;
+}
+
+/* 단어 목록 스타일 */
+.word-list {
+    overflow-y: unset; /* 목록 자체에 스크롤 없애기 */
+    padding-right: 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* 단어 항목 스타일 */
+.word-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* 삭제 버튼을 왼쪽으로 정렬 */
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    color: #000;
+    word-break: break-word;
+    margin-bottom: 10px;
+}
+
+/* 단어 내용 스타일 */
+.word-content {
+    flex-grow: 1;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-left: 10px;
+    word-break: break-word;
+}
+
+/* 삭제 버튼 스타일 */
+.delete-button {
+    background-color: #ff6b6b !important;
+    color: white !important;
+    border: none !important;
+    padding: 5px 10px !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    font-size: 14px !important;
+    width: 80px !important; /* 모든 삭제 버튼의 고정 너비 설정 */
+    text-align: center !important; /* 텍스트를 가운데 정렬 */
+    flex-shrink: 0 !important; /* 버튼 크기가 작아지지 않도록 설정 */
+    margin-right: 10px !important; /* 삭제 버튼과 단어 내용 사이의 간격 */
+}
+
+.delete-button:hover {
+    background-color: #ff4c4c !important;
+}

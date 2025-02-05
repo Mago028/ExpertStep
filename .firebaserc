@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "expertstep-ce041"
-  }
+    "default": "expertstep-ce041",
+    "expertstep-ce041": "expertstep-ce041"
+  },
+  "targets": {},
+  "etags": {}
 }

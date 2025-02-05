@@ -1,0 +1,73 @@
+
+
+.admin-container {
+    padding: 20px;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    min-height: calc(100vh - 80px); /* 네비게이션 바 높이를 고려하여 최소 높이 설정 */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 100px; /* 네비게이션 바가 겹치지 않도록 하단에 충분한 여백 추가 */
+}
+
+/* 섹션 타이틀 스타일 */
+h1 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 40px; /* 위쪽 여백 추가 */
+    display: block;
+    width: 100%;
+}
+
+h2 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* 관리자 권한 부여 섹션 스타일 */
+.admin-role-section {
+    display: flex;
+    justify-content: center; /* 가운데 정렬 */
+    align-items: center;
+    margin-bottom: 30px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    gap: 10px; /* 입력창과 버튼 사이에 간격 추가 */
+}
+
+.admin-role-section input {
+    width: 300px; /* 입력창의 너비 조정 */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px; /* 글자 크기 조정 */
+}
+
+.admin-role-section button {
+    padding: 10px 20px;
+    background-color: #4f4fcb;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px; /* 글자 크기 조정 */
+    cursor: pointer;
+}
+
+.admin-role-section button:hover {
+    background-color: #3939a2;
+}
+
+/* 전체 페이지가 스크롤 되도록 설정 */
+body {
+    overflow-y: auto; /* 페이지 전체에서만 스크롤 되도록 */
+    height: 100%;
+}

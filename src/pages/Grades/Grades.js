@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { Link, useLocation } from "react-router-dom";
 import "./Grades.css";
@@ -19,8 +19,11 @@ const Grades = () => {
 
         const userResultsCollection = collection(db, "users", userId, "testResults");
         const querySnapshot = await getDocs(userResultsCollection);
-        const resultsData = querySnapshot.docs.map(doc => doc.data());
-        setResults(resultsData);
+        const resultsData = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })); // doc ID를 함께 저장
+
+        // 시간순으로 정렬된 전체 결과를 저장
+        const sortedResults = resultsData.sort((a, b) => b.timestamp - a.timestamp);
+        setResults(sortedResults);
       } catch (error) {
         console.error("Error fetching results: ", error);
       }
@@ -29,18 +32,20 @@ const Grades = () => {
     fetchResults();
   }, [userId]);
 
-  const findFailedSubjects = (areaScores) => {
-    return areaScores
-      .map((score, index) => ({
-        subject: `영역 ${index + 1}`,
-        score,
-      }))
-      .filter((subject) => subject.score < 40);
+  const deleteResult = async (resultId) => {
+    try {
+      // Firebase에서 해당 성적 삭제
+      await deleteDoc(doc(db, "users", userId, "testResults", resultId));
+      // 삭제 후 화면에서 결과 제거
+      setResults(results.filter((result) => result.id !== resultId));
+    } catch (error) {
+      console.error("Error deleting result: ", error);
+    }
   };
 
   const isPass = (areaScores) => {
     const averageScore = areaScores.reduce((a, b) => a + b, 0) / areaScores.length;
-    return averageScore >= 60 && findFailedSubjects(areaScores).length === 0;
+    return averageScore >= 60 && areaScores.every((score) => score >= 40);
   };
 
   return (
@@ -49,23 +54,33 @@ const Grades = () => {
       {results.length > 0 ? (
         results.map((result, index) => (
           <div key={index} className="result-container">
-            <div className="result-title">
+            <div className="result-header">
               <h3>{result.testName}</h3>
             </div>
             <div className="result-score">{result.totalScore.toFixed(2)}점</div>
-            <div className={`result-status ${isPass(result.areaScores) ? "pass" : "fail"}`}>
+            <div
+              className={`result-status ${
+                isPass(result.areaScores) ? "pass" : "fail"
+              }`}
+            >
               {isPass(result.areaScores) ? "합격!" : "불합격"}
             </div>
             <div className="result-info">
-              <p>총 {result.totalQuestions}문제 중 {result.totalScore.toFixed(2)}점 맞추셨습니다.</p>
+              <p>
+                총 {result.totalQuestions}문제 중 {result.totalScore.toFixed(2)}점
+                맞추셨습니다.
+              </p>
               <p>과락 기준: 40점 미만</p>
             </div>
             <div className="result-chart">
-              {result.areaScores.map((score, index) => (
+              {result.areaScores.map((score, areaIndex) => (
                 <div
-                  key={index}
+                  key={areaIndex}
                   className="subject-bar"
-                  style={{ width: `${100 / result.areaScores.length}%`, position: "relative" }}
+                  style={{
+                    width: `${100 / result.areaScores.length}%`,
+                    position: "relative",
+                  }}
                 >
                   <div
                     className="bar"
@@ -77,30 +92,26 @@ const Grades = () => {
                   </div>
                   <div className="midline"></div>
                   <div className="result-chartline">
-                    <div className="subject-name">영역 {index + 1}</div>
+                    <div className="subject-name">영역 {areaIndex + 1}</div>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="fail-subjects">
-              <h3>과락 과목</h3>
-              {findFailedSubjects(result.areaScores).length > 0 ? (
-                <div className="failed-subject-list">
-                  {findFailedSubjects(result.areaScores).map((subject, idx) => (
-                    <span key={idx} className="failed-subject">{subject.subject}</span>
-                  ))}
-                </div>
-              ) : (
-                <p>과락한 과목이 없습니다.</p>
-              )}
-            </div>
+            <button
+              className="delete-button"
+              onClick={() => deleteResult(result.id)}
+            >
+              삭제
+            </button>
           </div>
         ))
       ) : (
         <p>시험 결과가 없습니다.</p>
       )}
       <div className="buttons">
-        <Link to="/" className="button">홈으로</Link>
+        <Link to="/" className="button">
+          홈으로
+        </Link>
       </div>
     </div>
   );

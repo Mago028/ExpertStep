@@ -12,7 +12,7 @@ export default function Eis() {
       <div className="Guide">
         <p>회차를 선택하세요.</p>
       </div>
-      <Link to="/problem/eis/eis21_1_test" className="link-container">
+      <Link to="/problem/eis/eis21_1" className="link-container">
         <div className="round-select">
           <div className="content">
             <div className="icon-wrapper">
@@ -29,7 +29,7 @@ export default function Eis() {
           </div>
         </div>
       </Link>
-      <Link to="/problem/eis/eis21_2_test" className="link-container">
+      <Link to="/problem/eis/eis21_2" className="link-container">
         <div className="round-select">
           <div className="content">
             <div className="icon-wrapper">
@@ -46,7 +46,7 @@ export default function Eis() {
           </div>
         </div>
       </Link>
-      <Link to="/problem/eis/eis21_3_test" className="link-container">
+      <Link to="/problem/eis/eis21_3" className="link-container">
         <div className="round-select">
           <div className="content">
             <div className="icon-wrapper">

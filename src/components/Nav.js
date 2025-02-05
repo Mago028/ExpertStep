@@ -16,7 +16,7 @@ export default function Nav() {
 
   return (
     <nav className={styles.nav}>
-      <h1 className={styles.tit}>어드민</h1>
+      <h1 className={styles.tit}>ExpertStep</h1>
       <ul className={styles.list_nav}>
         {!user && (
           <>

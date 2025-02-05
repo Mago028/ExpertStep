@@ -20,11 +20,7 @@ function Problem() {
             </div>
             <div className="text-wrapper">
               <p className="categoryHeader">정보처리기사</p>
-              <p className="categoryTime">
-                응시시간
-                <br />
-                2시간 30분
-              </p>
+              <p className="categoryTime">응시시간 2시간 30분</p>
             </div>
           </div>
         </div>
@@ -37,11 +33,7 @@ function Problem() {
             </div>
             <div className="text-wrapper">
               <p className="categoryHeader">산업안전기사</p>
-              <p className="categoryTime">
-                응시시간
-                <br />
-                3시간
-              </p>
+              <p className="categoryTime">응시시간 3시간</p>
             </div>
           </div>
         </div>
@@ -54,11 +46,7 @@ function Problem() {
             </div>
             <div className="text-wrapper">
               <p className="categoryHeader">전기기사</p>
-              <p className="categoryTime">
-                응시시간
-                <br />
-                2시간 30분
-              </p>
+              <p className="categoryTime">응시시간 2시간 30분</p>
             </div>
           </div>
         </div>
@@ -71,11 +59,7 @@ function Problem() {
             </div>
             <div className="text-wrapper">
               <p className="categoryHeader">소방설비기사(기계)</p>
-              <p className="categoryTime">
-                응시시간
-                <br />
-                2시간
-              </p>
+              <p className="categoryTime">응시시간 2시간</p>
             </div>
           </div>
         </div>
@@ -88,11 +72,7 @@ function Problem() {
             </div>
             <div className="text-wrapper">
               <p className="categoryHeader">건설안전기사</p>
-              <p className="categoryTime">
-                응시시간
-                <br />
-                3시간
-              </p>
+              <p className="categoryTime">응시시간 3시간</p>
             </div>
           </div>
         </div>

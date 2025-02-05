@@ -155,20 +155,15 @@ export default function Ee22_2_test({ userId = "defaultUserId" }) { // userId �
   
       const totalScore = areaScores.reduce((a, b) => a + b, 0) / TOTAL_SUBJECTS;
   
-      // 오답 데이터를 Firestore에 저장
-      incorrectAnswers.forEach(async (answer) => {
-        const docRef = collection(db, "users", userId, "incorrectAnswers");
-        await addDoc(docRef, answer);
-      });
-  
-      // 시험 결과를 Firestore에 저장
+      // `incorrectAnswers` 필드를 `testResults`에 저장하여 모의고사와 같은 구조로 저장
       const resultData = {
-        testName: TEST_NAME,
+        testName: TEST_NAME,  // 예: "정보처리기사 22년 1회차"
         userId: userId,
         totalScore: totalScore,
         areaScores: areaScores,
         totalQuestions: eipData.length,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        incorrectAnswers: incorrectAnswers  // 오답 정보 포함
       };
   
       await addDoc(collection(db, "users", userId, "testResults"), resultData);
@@ -179,6 +174,7 @@ export default function Ee22_2_test({ userId = "defaultUserId" }) { // userId �
       console.error("Error during submission: ", error);
     }
   };
+  
 
   const currentQuestion = eipData[currentQuestionIndex];
 
