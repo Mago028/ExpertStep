@@ -1,6 +1,8 @@
 [한서대 2024졸업프로젝트]
 # "ExpertStep||자격증 공부를 언제어디서나"
 
+###**[ExpertStep으로 바로가기]**(https://expertstep-ce041.web.app)
+
 ## 📌 프로젝트 개요
 ExpertStep은 자격증 문제 풀이 및 모의고사 기능을 제공하는 웹사이트입니다. 사용자는 자격증별 문제를 풀고 성적을 확인하며, 오답 노트를 통해 학습을 보완할 수 있습니다.
 
@@ -9,7 +11,7 @@ ExpertStep은 자격증 문제 풀이 및 모의고사 기능을 제공하는 �
 - **Frontend:** React.js
 - **Backend:** Firebase, Node.js
 - **Database:** Firestore
-- **배포:** Firebase Hosting(2024.11.14이후 배포❌)
+- **배포:** Firebase Hosting
 
 ## 🔥 주요 기능
 ### ✅ 자격증 문제 풀이
