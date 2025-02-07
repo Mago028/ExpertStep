@@ -11,6 +11,7 @@
     "chart.js": "^4.4.3",
     "firebase": "^9.23.0",
     "firebase-admin": "^12.4.0",
+    "husky": "^9.1.7",
     "react": "^18.2.0",
     "react-calendar": "^5.0.0",
     "react-chartjs-2": "^5.2.0",
@@ -25,7 +26,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "cd .. && husky install frontend/.husky && cd frontend"
   },
   "eslintConfig": {
     "extends": [
