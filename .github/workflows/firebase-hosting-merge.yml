@@ -3,11 +3,14 @@ name: Deploy to Firebase Hosting on merge
 on:
   push:
     branches:
-      - master  # 또는 main, 프로젝트의 기본 브랜치를 사용
+      - master
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./server
 
     steps:
     - name: Checkout repository
@@ -27,4 +30,4 @@ jobs:
     - name: Deploy to Firebase Hosting
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-      run: firebase deploy --only hosting
+      run: npx firebase deploy --only hosting
