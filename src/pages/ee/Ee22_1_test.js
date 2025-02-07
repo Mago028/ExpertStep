@@ -123,14 +123,14 @@ export default function Ee22_1_test({ userId = "defaultUserId" }) {
     }
   };
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [] = useState(false);
 
-  const handleSubmit = async () => {
+  async function handleSubmit() {
     try {
       const answersData = await fetchAnswers();
       const areaScores = Array(TOTAL_SUBJECTS).fill(0);
       const incorrectAnswers = [];
-  
+
       selectedAnswers.forEach((answer, index) => {
         const { answer: correctAnswer, areaId, Question, Explanation, Image, ExplanationImage } = answersData[index];
         if (answer !== correctAnswer) {
@@ -154,28 +154,28 @@ export default function Ee22_1_test({ userId = "defaultUserId" }) {
           areaScores[areaId - 1] += 5;
         }
       });
-  
+
       const totalScore = areaScores.reduce((a, b) => a + b, 0) / TOTAL_SUBJECTS;
-  
+
       // `incorrectAnswers` 필드를 `testResults`에 저장하여 모의고사와 같은 구조로 저장
       const resultData = {
-        testName: TEST_NAME,  // 예: "정보처리기사 22년 1회차"
+        testName: TEST_NAME, // 예: "정보처리기사 22년 1회차"
         userId: userId,
         totalScore: totalScore,
         areaScores: areaScores,
         totalQuestions: eipData.length,
         timestamp: new Date().toISOString(),
-        incorrectAnswers: incorrectAnswers  // 오답 정보 포함
+        incorrectAnswers: incorrectAnswers // 오답 정보 포함
       };
-  
+
       await addDoc(collection(db, "users", userId, "testResults"), resultData);
-  
+
       navigate("/pages/problem/result", { state: { areaScores, totalScore, totalQuestions: eipData.length, userId } });
       setIsSubmitPopupOpen(false);
     } catch (error) {
       console.error("Error during submission: ", error);
     }
-  };
+  }
   
 
   const currentQuestion = eipData[currentQuestionIndex];

@@ -3,7 +3,6 @@ import { useState } from 'react'
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { useLogin } from '../../hooks/useLogin';
-import ExpertStep from "../../image/ExpertStep.png"
 import {ReactComponent as Logo} from "../../image/ExpertStep.svg"
 
 

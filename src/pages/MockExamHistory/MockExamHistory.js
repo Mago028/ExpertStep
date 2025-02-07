@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { db } from "../../firebase/config";
 import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
-import Latex from 'react-latex';
 import 'katex/dist/katex.min.css';
 import "./MockExamHistory.css";
 

@@ -8,7 +8,7 @@ const CalendarComponent = () => {
   const [date, setDate] = useState(new Date());
   const [events, setEvents] = useState({});
   const [newEvent, setNewEvent] = useState("");
-  const [apiEvents, setApiEvents] = useState([]);
+  const [apiEvents] = useState([]);
 
   const publicHolidays = [new Date(2024, 0, 1), new Date(2024, 11, 25)];
 

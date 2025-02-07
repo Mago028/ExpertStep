@@ -56,11 +56,7 @@ import Ecs_word from './pages/ecs/Ecs_word';
 import Ee_word from './pages/ee/Ee_word';
 import Efps_word from './pages/efps/Efps_word';
 import Eip_myword from './pages/eip/Eip_myword';
-import Eip_myvoca from './pages/eip/Eip_myvoca';
-import Eis_myvoca from './pages/eis/Eis_myvoca';
-import Ecs_myvoca from './pages/ecs/Ecs_myvoca';
-import Ee_myvoca from './pages/ee/Ee_myvoca';
-import Efps_myvoca from './pages/efps/Efps_myvoca';
+
 import MyPage from './pages/mypage/MyPage';
 import ProfileSetting from './pages/mypage/ProfilesSetting';
 import PasswordChangeScreen from './pages/mypage/PassWordChangePage';

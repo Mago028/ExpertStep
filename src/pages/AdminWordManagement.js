@@ -17,7 +17,7 @@ const AdminWordManagement = () => {
   const [newWord, setNewWord] = useState("");
   const [newDefinition, setNewDefinition] = useState("");
 
-  const fetchWords = async () => {
+  async function fetchWords() {
     try {
       const wordsCollection = collection(db, collections[selectedCollection]);
       const wordSnapshot = await getDocs(wordsCollection);
@@ -30,7 +30,7 @@ const AdminWordManagement = () => {
     } catch (error) {
       console.error("Error fetching words: ", error);
     }
-  };
+  }
 
   useEffect(() => {
     fetchWords();

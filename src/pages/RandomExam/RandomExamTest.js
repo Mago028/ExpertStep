@@ -17,7 +17,7 @@ export default function RandomExamTest({ userId = "defaultUserId" }) {
   const [timeLeft, setTimeLeft] = useState(0);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isSubmitPopupOpen, setIsSubmitPopupOpen] = useState(false);
-  const [incorrectAnswers, setIncorrectAnswers] = useState([]);
+  const [setIncorrectAnswers] = useState([]);
   const navigate = useNavigate();
   
   useEffect(() => {

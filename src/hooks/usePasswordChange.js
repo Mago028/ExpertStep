@@ -1,6 +1,5 @@
 // src/hooks/usePasswordChange.js
 import { useState } from 'react';
-import { appAuth } from '../firebase/config';
 import { updatePassword, reauthenticateWithCredential, EmailAuthProvider } from 'firebase/auth';
 import { useAuthContext } from './useAuthContext';
 

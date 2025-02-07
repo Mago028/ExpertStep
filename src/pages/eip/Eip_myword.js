@@ -1,11 +1,9 @@
 import React from 'react';
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import { FaComputer } from "react-icons/fa6";
-import { IoArrowBack } from "react-icons/io5";
 import './Eip_myword.css';
 
 function Eip_myword() {
-  const navigate = useNavigate();
 
 
   return (
